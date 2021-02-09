@@ -8,6 +8,20 @@ from utils.gui_utils import get_label, get_who_codes, get_mark
 import time
 import os
 
+print("""
+
+`7MMM.     ,MMF'      db            db       .M'''bgd 
+  MMMb    dPMM       ;MM:          ;MM:     ,MI    "Y 
+  M YM   ,M MM      ,V^MM.        ,V^MM.    `MMb.     
+  M  Mb  M' MM     ,M  `MM       ,M  `MM      `YMMNq. 
+  M  YM.P'  MM     AbmmmqMA      AbmmmqMA   .     `MM 
+  M  `YM'   MM    A'     VML    A'     VML  Mb     dM 
+.JML. `'  .JMML..AMA.   .AMMA..AMA.   .AMMA.P"Ybmmd"  
+
+--- M E T A - A N A L Y S I S    A S S I S T A N T ---
+
+""")
+
 # Definitions
 ID_COL = 'ï»¿IDrec'
 FOUND_COLOR = '#243e73'
