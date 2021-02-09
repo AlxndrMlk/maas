@@ -48,5 +48,5 @@ print(f'Pulling updates...\n')
 g = git.cmd.Git(git_folder)
 g.pull()
 
-print(f'\nUpdate completed!\nThank you!.\n')
+print(f'\nUpdate completed!\nThank you!\n')
 time.sleep(3)
