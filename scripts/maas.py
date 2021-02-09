@@ -2,8 +2,8 @@ import PySimpleGUI as sg
 import numpy as np
 import json
 import pandas as pd
-from data_utils import update_index, get_similarity, compare_authors
-from gui_utils import get_label, get_who_codes, get_mark
+from utils.data_utils import update_index, get_similarity, compare_authors
+from utils.gui_utils import get_label, get_who_codes, get_mark
 
 import time
 import os
@@ -20,7 +20,6 @@ FEATS = [
     '-HUMAN-DECISION-',
     '♻ Google',
     '♻ Scholar',
-    '❤ Open PDF',
     '-COMMENT-'
 ]
 
