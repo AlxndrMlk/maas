@@ -1,14 +1,32 @@
-import PySimpleGUI as sg
-import numpy as np
-import json
-import pandas as pd
-from utils.data_utils import update_index, get_similarity, compare_authors
-from utils.gui_utils import get_label, get_who_codes, get_mark
+#!/usr/bin/env python
+
+"""
+MAAS | Meta-analysis assistant
+"""
 
 import time
 import os
+import json
 
-print("""
+import PySimpleGUI as sg
+
+import numpy as np
+import pandas as pd
+
+from utils.data_utils import update_index, get_similarity, compare_authors
+from utils.gui_utils import get_label, get_who_codes, get_mark
+
+
+__author__ = "Aleksander Molak"
+__copyright__ = "(C) 2021, Aleksander Molak"
+__credits__ = ["Aleksander Molak"]
+__license__ = ""
+__version__ = "0.1.0"
+__maintainer__ = "Alekssander Molak"
+__email__ = "aleksander.molak@gmail.com"
+__status__ = "beta"
+
+print(f"""
 
 --------------- W E L C O M E  T O ------------------
 
@@ -21,6 +39,9 @@ print("""
 .JML. `'  .JMML..AMA.   .AMMA..AMA.   .AMMA.P"Ybmmd"  
 
 --- M E T A - A N A L Y S I S   A S S I S T A N T ---
+
+Current version: {__version__} {__status__}
+Contact: {__email__}
 
 """)
 

@@ -1,5 +1,5 @@
 @echo off
-echo Welcome to MAAS - Meta analysis assistant v 0.1 beta!
+echo Welcome to MAAS - Meta analysis assistant!
 echo.
 call activate.bat MAAS
 python.exe scripts/maas.py

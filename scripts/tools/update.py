@@ -1,8 +1,26 @@
+#!/usr/bin/env python
+
+"""
+MAAS | Meta-analysis assistant UPDATER
+
+This module updates the MAAS version to the latest version available at github.
+"""
+
 import os
 import git
 import time
 
-print("""
+
+__author__ = "Aleksander Molak"
+__copyright__ = "(C) 2021, Aleksander Molak"
+__credits__ = ["Aleksander Molak"]
+__license__ = ""
+__version__ = "0.1.0"
+__maintainer__ = "Alekssander Molak"
+__email__ = "aleksander.molak@gmail.com"
+__status__ = "beta"
+
+print(f"""
 
 --------------- W E L C O M E  T O ------------------
 
@@ -16,7 +34,11 @@ print("""
 
 --- M E T A - A N A L Y S I S   A S S I S T A N T ---
 
+Current version (update module): {__version__} {__status__}
+Contact: {__email__}
+
 """)
+
 
 git_folder = os.getcwd()
 
