@@ -3,7 +3,7 @@
 """
 MAAS | Meta-analysis assistant UPDATER
 
-This module updates the MAAS version to the latest version available at github.
+This module updates MAAS version to the latest version available at github.
 """
 
 import os
