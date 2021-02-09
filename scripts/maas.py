@@ -5,6 +5,7 @@ import pandas as pd
 from data_utils import update_index, get_similarity, compare_authors
 from gui_utils import get_label, get_who_codes, get_mark
 
+import time
 import os
 
 # Definitions
@@ -313,7 +314,7 @@ def update_screen(window, current_index):
     window['-COMMENT-'].update(f'{data.at[current_index, "why_not_final"]}')
 
     # Update PDF button
-    if (len(str(data.at[current_index, "pdf_dwnld_filename"])) < 1) or (str(data.at[current_index, "pdf_dwnld_filename"]) == 'nan'):
+    if (data.at[current_index, "pdf_dowloaded"] == 0):
         window['❤ Open PDF'].update(disabled = True)
     else:
         window['❤ Open PDF'].update(disabled = False)
@@ -325,7 +326,7 @@ while True:
     event, values = window.read()
 
     if event == sg.WINDOW_CLOSED or event == 'Quit ❌':
-        print('\nApp closed\n')
+        print('\nThank you for using MAAS!\n')
         break
 
 
