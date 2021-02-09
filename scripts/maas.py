@@ -10,6 +10,8 @@ import os
 
 print("""
 
+--------------- W E L C O M E  T O ------------------
+
 `7MMM.     ,MMF'      db            db       .M'''bgd 
   MMMb    dPMM       ;MM:          ;MM:     ,MI    "Y 
   M YM   ,M MM      ,V^MM.        ,V^MM.    `MMb.     
@@ -18,13 +20,14 @@ print("""
   M  `YM'   MM    A'     VML    A'     VML  Mb     dM 
 .JML. `'  .JMML..AMA.   .AMMA..AMA.   .AMMA.P"Ybmmd"  
 
---- M E T A - A N A L Y S I S    A S S I S T A N T ---
+--- M E T A - A N A L Y S I S   A S S I S T A N T ---
 
 """)
 
 # Definitions
 ID_COL = 'ï»¿IDrec'
 FOUND_COLOR = '#243e73'
+MAIN_COLOR = '#3f84e1'
 
 FEATS = [
     ' ⏪ Prev ',
@@ -55,7 +58,7 @@ sg.theme('DefaultNoMoreNagging')
 
 # Define layout
 title_section = [
-    [sg.Text('Meta-anaysis assistant', 
+    [sg.Text('Meta-analysis assistant', 
         size = (78, 1),
         font = ('Bahnschrift', 16), 
         justification = 'center')],
@@ -203,7 +206,7 @@ article_section = [
     [sg.Text()],
     [
         sg.Combo(ANNOTATORS, background_color = 'green', key = '-ANNOTATORS-', readonly = True), 
-        sg.Button('▶ Start', button_color = '#0096db on white', focus = True),
+        sg.Button('▶ Start', button_color = f'{MAIN_COLOR} on white', focus = True),
         sg.Text('',
             size = (32, 1),
             text_color = 'red',
@@ -299,7 +302,7 @@ layout = [
 ]
 
 # Create the window
-window = sg.Window('Meta analysis assistant', layout)
+window = sg.Window('MAAS | Meta analysis assistant', layout, icon = r'.\app-data\icons\maas_logo_small.ico')
 
 # Define update
 def update_screen(window, current_index):

@@ -4,6 +4,8 @@ import time
 
 print("""
 
+--------------- W E L C O M E  T O ------------------
+
 `7MMM.     ,MMF'      db            db       .M'''bgd 
   MMMb    dPMM       ;MM:          ;MM:     ,MI    "Y 
   M YM   ,M MM      ,V^MM.        ,V^MM.    `MMb.     
@@ -12,7 +14,7 @@ print("""
   M  `YM'   MM    A'     VML    A'     VML  Mb     dM 
 .JML. `'  .JMML..AMA.   .AMMA..AMA.   .AMMA.P"Ybmmd"  
 
---- M E T A - A N A L Y S I S    A S S I S T A N T ---
+--- M E T A - A N A L Y S I S   A S S I S T A N T ---
 
 """)
 
