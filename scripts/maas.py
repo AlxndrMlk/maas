@@ -21,7 +21,7 @@ __author__ = "Aleksander Molak"
 __copyright__ = "(C) 2021, Aleksander Molak"
 __credits__ = ["Aleksander Molak"]
 __license__ = ""
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __maintainer__ = "Alekssander Molak"
 __email__ = "aleksander.molak@gmail.com"
 __status__ = "beta"
@@ -147,6 +147,13 @@ article_section = [
             key = '-FOUND-AUTHORS-',
             font = 'Halvetica 10 bold',
             text_color = FOUND_COLOR)
+    ],
+    [
+        sg.Text('Keyword', size = (9, 2)), 
+        sg.Text(f'', 
+            size = (48, 2),
+            key = '-KEYWORD-',
+            font = 'Halvetica 10')
     ],
 
     # Articles nav
@@ -343,6 +350,7 @@ def update_screen(window, current_index):
     window['-TITLES-MATCH-MARK-'].update(titles_sim_mark[0], text_color = titles_sim_mark[1])
     window['-AUTHORS-MATCH-'].update(authors_match)
     window['-AUTHORS-MATCH-MARK-'].update(authors_match_mark[0], text_color = authors_match_mark[1])
+    window['-KEYWORD-'].update(f'{data.at[current_index, "term"]}')
     #### UPDATE
     # -MODEL-PRED-
     # -MODEL-CONF-
