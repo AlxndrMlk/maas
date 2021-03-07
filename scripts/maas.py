@@ -14,14 +14,14 @@ import numpy as np
 import pandas as pd
 
 from utils.data_utils import update_index, get_similarity, compare_authors
-from utils.gui_utils import get_label, get_who_codes, get_mark
+from utils.gui_utils import get_label, get_who_codes, get_mark, decode_model_pred
 
 
 __author__ = "Aleksander Molak"
 __copyright__ = "(C) 2021, Aleksander Molak"
 __credits__ = ["Aleksander Molak"]
 __license__ = ""
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 __maintainer__ = "Alekssander Molak"
 __email__ = "aleksander.molak@gmail.com"
 __status__ = "beta"
@@ -46,7 +46,7 @@ Contact: {__email__}
 """)
 
 # Definitions
-ID_COL = 'ï»¿IDrec'
+ID_COL = 'IDrec'
 FOUND_COLOR = '#243e73'
 MAIN_COLOR = '#3f84e1'
 
@@ -68,7 +68,7 @@ with open(r'./app-data/annotators.dat', 'r') as f:
 with open(r'./app-data/data.dat', 'r') as f:
     DATA_PATH = f.readline()
 
-data = pd.read_csv(DATA_PATH, sep = ';')
+data = pd.read_csv(DATA_PATH)
 data = data.fillna('')
 
 # Define current index
@@ -352,7 +352,7 @@ def update_screen(window, current_index):
     window['-AUTHORS-MATCH-MARK-'].update(authors_match_mark[0], text_color = authors_match_mark[1])
     window['-KEYWORD-'].update(f'{data.at[current_index, "term"]}')
     #### UPDATE
-    # -MODEL-PRED-
+    window['-MODEL-PRED-'].update(decode_model_pred(data.at[current_index, "model_prediction"]))
     # -MODEL-CONF-
     window['-HUMAN-AGENT-'].update(f'{get_who_codes(data.at[current_index, "who_codes"])}')
     window['-HUMAN-DECISION-'].update(f'{get_label(data.at[current_index, "Final"])}')

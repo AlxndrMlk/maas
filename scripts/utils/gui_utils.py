@@ -22,3 +22,10 @@ def get_mark(x, thrshld):
             return '❌', 'red'
     except ValueError:
         return '⚠', 'yellow'
+
+
+def decode_model_pred(x):
+    if x in [0, 1]:
+        return str(int(x))
+    else: 
+        return '--'
