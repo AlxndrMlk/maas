@@ -3,7 +3,7 @@
 
 1. Go to your MAAS folder and copy its location
 
-<img src="https://your-image-url.type" width="100" height="100">
+<img src="https://github.com/AlxndrMlk/maas/raw/main/docs/folder_location.png" width="200">
 
 2. 
 3. 
