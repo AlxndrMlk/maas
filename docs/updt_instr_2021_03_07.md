@@ -27,5 +27,6 @@
 
 ## Part 2 - download PDFs
 
-1. Download PDFs from here: https://cbu-pdf.s3.us-east-2.amazonaws.com/pdf/pdf.zip 
-  Thei
+1. Download PDFs from here: https://cbu-pdf.s3.us-east-2.amazonaws.com/pdf/pdf.zip (16GB). Save the file in `pdf-library` folder (it's insode your `maas` folder).
+
+2. Unzip the files directly to the folder (options like `Extract Here` or `Wypakuj tutaj`)
