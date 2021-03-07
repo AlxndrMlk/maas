@@ -31,4 +31,5 @@
 
 2. Unzip the files directly to the folder (options like `Extract Here` or `Wypakuj tutaj`).
 
-3. Now you can type `maas` in your **Anaconda Prompt**. The app should start and you should be able to access any ID from our database.
+3. **That's all!** 🎉 Now you can type `maas` in your **Anaconda Prompt** and start using the app. All the IDs from our database should be now accessible 
+
