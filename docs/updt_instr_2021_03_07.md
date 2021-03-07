@@ -23,5 +23,9 @@
 
 7. **Congrats!** We're done with this part! 🎉
 
+<br>
+
 ## Part 2 - download PDFs
+
 1. Download PDFs from here: https://cbu-pdf.s3.us-east-2.amazonaws.com/pdf/pdf.zip 
+  Thei
