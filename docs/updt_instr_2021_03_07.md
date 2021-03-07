@@ -31,5 +31,7 @@
 
 2. Unzip the files directly to the folder (options like `Extract Here` or `Wypakuj tutaj`).
 
+3. After extracting, you can **delete** the zip file (`pdf.zip`).
+
 3. **That's all!** 🎉 Now you can type `maas` in your **Anaconda Prompt** and start using the app. All the IDs from our database should be now accessible 
 
