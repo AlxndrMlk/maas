@@ -13,7 +13,7 @@
 
 3. In you **Anaconda Prompt** type `cd ` (note that there's a space after `cd`) and then paste your folder location by clicking `Ctrl+V`.
 <br>
-    <img src="https://github.com/AlxndrMlk/maas/raw/main/docs/anaconda_prompt2.png" width="500">
+    <img src="https://github.com/AlxndrMlk/maas/raw/main/docs/anaconda_prompt_2.png" width="500">
 
 4. Now you should see your **MAAS folder location** on the left of your cursor. If that's the case, continue 👍🏼
 
