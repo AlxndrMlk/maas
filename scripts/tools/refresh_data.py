@@ -7,9 +7,11 @@ This module updates dataset version to the latest version available at S3 bucket
 """
 
 import os
-import git
 import time
 import glob
+from pathlib import Path
+
+import git
 import requests
 from tqdm import tqdm
 
@@ -45,15 +47,43 @@ Contact: {__email__}
 with open(r'./app-data/data.dat', 'r') as f:
     DATA_PATH = f.readline()
 
-print(os.path.split(DATA_PATH)[1])
+with open(r'./app-data/s3.dat', 'r') as f:
+    S3_URI = f.readline()
 
-# git_folder = os.getcwd()
+FILENAME = os.path.split(DATA_PATH)[1]
+URI = fr'{S3_URI}/{FILENAME}'
 
-# print(f'\nLocated project folder: {git_folder}')
-# print(f'Pulling updates...\n')
+data_file = Path(DATA_PATH)
 
-# g = git.cmd.Git(git_folder)
-# g.pull()
+if data_file.exists():
 
-# print(f'\nUpdate completed!\nThank you!\n')
-# time.sleep(3)
+  print('\nYour data file seems up to date :)\n')
+
+else:
+
+  print(f'Downloading data from {URI}...\n')
+
+  # Get stream
+  response = requests.get(URI, stream=True)
+
+  # Get metadata
+  total_size_in_bytes = int(response.headers.get('content-length', 0))
+  block_size = 1024 
+
+  # Initialize progress bar
+  progress_bar = tqdm(total=total_size_in_bytes, unit='iB', unit_scale=True)
+
+  with open(DATA_PATH, 'wb') as file:
+      for data in response.iter_content(block_size):
+          progress_bar.update(len(data))
+          file.write(data)
+  progress_bar.close()
+
+  if total_size_in_bytes != 0 and progress_bar.n != total_size_in_bytes:
+      print("\nError :(")
+  else:
+      print('\nDone! :)')
+  
+
+print(f'\nUpdate completed!\n')
+time.sleep(3)
