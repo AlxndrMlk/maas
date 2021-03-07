@@ -8,6 +8,8 @@
 
 
 2. Open **Anaconda Prompt** (just type `anaconda` in your Windows search and it should appear).
+<br>
+    <img src="https://github.com/AlxndrMlk/maas/raw/main/docs/anaconda_prompt.png" width="500">
 
 3. In you **Anaconda Prompt** type `cd ` (note that there's a space after `cd`) and then paste your folder location by clicking `Ctrl+V`.
 
