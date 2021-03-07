@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 
 from utils.data_utils import update_index, get_similarity, compare_authors
-from utils.gui_utils import get_label, get_who_codes, get_mark, decode_model_pred
+from utils.gui_utils import get_label, get_who_codes, get_mark, decode_model_pred, decode_model_error_prob
 
 
 __author__ = "Aleksander Molak"
@@ -67,6 +67,11 @@ with open(r'./app-data/annotators.dat', 'r') as f:
 
 with open(r'./app-data/data.dat', 'r') as f:
     DATA_PATH = f.readline()
+
+with open(r'./app-data/error-hists.json', 'r') as f:
+    ERROR_HISTS = json.load(f)
+    BINS = ERROR_HISTS['bins']
+    ERROR_PROBAS = ERROR_HISTS['p_error']
 
 data = pd.read_csv(DATA_PATH)
 data = data.fillna('')
@@ -266,7 +271,7 @@ decision_section = [
 
     ## Confidence
     [
-        sg.Text('Confidence: ', size = (9, 1)),
+        sg.Text('P(error): ', size = (9, 1)),
         sg.Text(f'NA', 
                     size = (8, 1),
                     key = '-MODEL-CONF-', 
@@ -353,10 +358,12 @@ def update_screen(window, current_index):
     window['-KEYWORD-'].update(f'{data.at[current_index, "term"]}')
     #### UPDATE
     window['-MODEL-PRED-'].update(decode_model_pred(data.at[current_index, "model_prediction"]))
-    # -MODEL-CONF-
+    window['-MODEL-CONF-'].update(decode_model_error_prob(data.at[current_index, "model_sd"], BINS, ERROR_PROBAS))
     window['-HUMAN-AGENT-'].update(f'{get_who_codes(data.at[current_index, "who_codes"])}')
     window['-HUMAN-DECISION-'].update(f'{get_label(data.at[current_index, "Final"])}')
     window['-COMMENT-'].update(f'{data.at[current_index, "why_not_final"]}')
+
+    window['-INDEX-WARNING-'].update(f'')
 
     # Update PDF button
     if (data.at[current_index, "pdf_dowloaded"] == 0):
@@ -442,7 +449,10 @@ while True:
         os.system(f"start \"\" {search_phrase}")
 
     if event == '❤ Open PDF':
-        os.startfile(fr'./pdf-library\\{data.at[current_index, "pdf_dwnld_filename"]}')
+        try:
+            os.startfile(fr'./pdf-library\\{data.at[current_index, "pdf_dwnld_filename"]}')
+        except:
+            window['-INDEX-WARNING-'].update(f'File not found :(((')
 
     
     if event == 'Update ✔':
