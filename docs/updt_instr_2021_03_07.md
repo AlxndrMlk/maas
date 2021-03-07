@@ -21,7 +21,7 @@
 
 6. If the previous step finished successfully, now type `refresh_data` in your **Anaconda Prompt**.
 
-7. **Congrats!** We're done with this part! 🎉
+7. **Congrats!** We're done with the first part! 🎉
 
 <br>
 
