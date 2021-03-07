@@ -15,14 +15,26 @@ def get_who_codes(x):
         return 'NA'
 
 
-def get_mark(x, thrshld):
+def get_mark(x, thrshld, negative=False):
     try:
+        if negative:
+            x = -float(x)
         if float(x) >= thrshld:
             return '✔', 'green'
         else:
             return '❌', 'red'
     except ValueError:
-        return '⚠', 'yellow'
+        return '⚠', 'gray'
+
+
+def get_mark_categorical(x, values):
+    try:
+        if x in values:
+            return '✔', 'green'
+        else:
+            return '❌', 'red'
+    except ValueError:
+        return '⚠', 'gray'
 
 
 def decode_model_pred(x):
@@ -48,3 +60,31 @@ def decode_model_error_prob(x, bins, p_error):
         return f'{proba * 100:.01f}%'
     except IndexError:
         return '--'
+
+
+def decode_lang(x):
+
+    if (type(x) == str) and (len(x) > 1):
+        return x.upper()
+    else:
+        return 'unk'
+
+
+def get_float(x, round_=2):
+
+    try:
+        x = float(x)
+        return round(x, round_)
+    except:
+        return '--'
+
+
+def decode_300_pages(x):
+
+    try:
+        if int(x) == 1:
+            return 'more than 300 pages'
+        else:
+            return ''
+    except ValueError:
+        return 'unk'

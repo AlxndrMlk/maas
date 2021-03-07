@@ -14,7 +14,8 @@ import numpy as np
 import pandas as pd
 
 from utils.data_utils import update_index, get_similarity, compare_authors
-from utils.gui_utils import get_label, get_who_codes, get_mark, decode_model_pred, decode_model_error_prob
+from utils.gui_utils import get_label, get_who_codes, get_mark, get_mark_categorical, get_float
+from utils.gui_utils import decode_model_pred, decode_model_error_prob, decode_lang, decode_300_pages
 
 
 __author__ = "Aleksander Molak"
@@ -208,30 +209,26 @@ article_section = [
     ],
     [
         sg.Text('Language', size = (12, 1)), 
-        sg.Text(f'0.00',
+        sg.Text(f'',
                 size = (3, 1),
                 key = '-LANGUAGE-',
-                font = 'Halvetica 10 bold',
-                text_color = 'gray'),
-        sg.Text(f'?', 
-                text_color = 'gray',
+                font = 'Halvetica 10 bold'),
+        sg.Text(f'', 
                 key = '-LANGUAGE-MARK-'),
-        sg.Text(f'EN', 
-                text_color = 'gray',
+        sg.Text(f'', 
+                size = (3, 1),
                 key = '-LANGUAGE-NAME-')
     ],
     [
         sg.Text('Article vs book', size = (12, 1)), 
-        sg.Text(f'0.00',
+        sg.Text(f'',
                 size = (3, 1),
                 key = '-IS-A-BOOK-',
-                font = 'Halvetica 10 bold',
-                text_color = 'gray'),
-        sg.Text(f'?', 
-                text_color = 'gray',
+                font = 'Halvetica 10 bold'),
+        sg.Text(f'', 
                 key = '-IS-A-BOOK-MARK-'),
-        sg.Text(f'NA', 
-                text_color = 'gray',
+        sg.Text(f'', 
+                size = (15, 1),
                 key = '-IS-A-BOOK-EXPLAIN-')
     ],
 
@@ -339,13 +336,16 @@ window = sg.Window('MAAS | Meta analysis assistant', layout, icon = r'.\app-data
 
 # Define update
 def update_screen(window, current_index):
+
     # Compute vars
     titles_similarity = get_similarity(data.at[current_index, "Title"], data.at[current_index, "web_title"], 2)
     titles_sim_mark = get_mark(titles_similarity, .8)
     authors_match = f'{compare_authors(data.at[current_index, "Authors"], str(data.at[current_index, "web_authors"]).strip().split("-")[0]):.2f}'
     authors_match_mark = get_mark(authors_match, .5)
+    lang_mark = get_mark_categorical(data.at[current_index, "lang"], ['en'])
+    book_mark = get_mark(data.at[current_index, "more_than_300_pages"], 0, negative=True)
 
-    # Update data
+    # Article
     window['-INDEX-'].update(f'{data.at[current_index, ID_COL]}')
     window['-TITLE-'].update(f'{data.at[current_index, "Title"].title()}')
     window['-AUTHORS-'].update(f'{data.at[current_index, "Authors"]}')
@@ -356,13 +356,25 @@ def update_screen(window, current_index):
     window['-AUTHORS-MATCH-'].update(authors_match)
     window['-AUTHORS-MATCH-MARK-'].update(authors_match_mark[0], text_color = authors_match_mark[1])
     window['-KEYWORD-'].update(f'{data.at[current_index, "term"]}')
-    #### UPDATE
+
+    # Book
+    window['-IS-A-BOOK-'].update(get_float(data.at[current_index, "more_than_300_pages"]))
+    window['-IS-A-BOOK-MARK-'].update(book_mark[0], text_color = book_mark[1])
+    window['-IS-A-BOOK-EXPLAIN-'].update(decode_300_pages(data.at[current_index, "more_than_300_pages"]))
+
+    # Language
+    window['-LANGUAGE-NAME-'].update(decode_lang(data.at[current_index, "lang"]))
+    window['-LANGUAGE-MARK-'].update(lang_mark[0], text_color = lang_mark[1])
+    window['-LANGUAGE-'].update(f'{get_float(data.at[current_index, "lang_confidence"])}')
+    
+    # Predictions & decisions
     window['-MODEL-PRED-'].update(decode_model_pred(data.at[current_index, "model_prediction"]))
     window['-MODEL-CONF-'].update(decode_model_error_prob(data.at[current_index, "model_sd"], BINS, ERROR_PROBAS))
     window['-HUMAN-AGENT-'].update(f'{get_who_codes(data.at[current_index, "who_codes"])}')
     window['-HUMAN-DECISION-'].update(f'{get_label(data.at[current_index, "Final"])}')
     window['-COMMENT-'].update(f'{data.at[current_index, "why_not_final"]}')
 
+    # Warnings
     window['-INDEX-WARNING-'].update(f'')
 
     # Update PDF button
