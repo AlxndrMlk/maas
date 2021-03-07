@@ -3,7 +3,7 @@
 
 1. Go to your MAAS folder and copy its location
 
-![GitHub Logo](/folder_location.png)
+![GitHub Logo](./folder_location.png)
 
 2. 
 3. 
