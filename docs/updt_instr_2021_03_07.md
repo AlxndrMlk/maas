@@ -8,10 +8,14 @@
 
 
 2. Open **Anaconda Prompt** (just type `anaconda` in your Windows search and it should appear).
+
 3. In you **Anaconda Prompt** type `cd ` (note that there's a space after `cd`) and then paste your folder location by clicking `Ctrl+V`.
+
 4. Now you should see your **MAAS folder location** on the left of your cursor. If that's the case, continue 👍🏼
+
 5. Now type `update` in your **Anaconda Prompt**. It should start updating your app.
-6. If this finished successfully, now type `refresh_data` in your **Anaconda Prompt**
+
+6. If this finished successfully, now type `refresh_data` in your **Anaconda Prompt**.
 
 ## Part 2 - download PDFs
 1. Download PDFs from here: https://cbu-pdf.s3.us-east-2.amazonaws.com/pdf/pdf.zip 
