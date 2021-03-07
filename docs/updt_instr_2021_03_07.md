@@ -19,7 +19,9 @@
 
 5. Now type `update` in your **Anaconda Prompt**. It should start updating your app.
 
-6. If this finished successfully, now type `refresh_data` in your **Anaconda Prompt**.
+6. If the previous step finished successfully, now type `refresh_data` in your **Anaconda Prompt**.
+
+7. **Congrats!** We're done with this part! 
 
 ## Part 2 - download PDFs
 1. Download PDFs from here: https://cbu-pdf.s3.us-east-2.amazonaws.com/pdf/pdf.zip 
