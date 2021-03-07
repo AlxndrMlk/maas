@@ -27,6 +27,8 @@
 
 ## Part 2 - download PDFs
 
-1. Download PDFs from here: https://cbu-pdf.s3.us-east-2.amazonaws.com/pdf/pdf.zip (16GB). Save the file in `pdf-library` folder (it's insode your `maas` folder).
+1. Download PDFs from here: https://cbu-pdf.s3.us-east-2.amazonaws.com/pdf/pdf.zip (16GB). Save the file in `pdf-library` folder (it's inside your `maas` folder).
 
-2. Unzip the files directly to the folder (options like `Extract Here` or `Wypakuj tutaj`)
+2. Unzip the files directly to the folder (options like `Extract Here` or `Wypakuj tutaj`).
+
+3. Now you can type `maas` in your **Anaconda Prompt**. The app should start and you should be able to access any ID from our database.
