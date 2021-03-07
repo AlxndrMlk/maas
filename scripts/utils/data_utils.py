@@ -55,3 +55,10 @@ def compare_authors(original, found):
     diffs = set(original_parsed).difference(set(found_parsed))
         
     return (len(original_parsed) - len(diffs)) / len(original_parsed)
+
+
+def remove_punctuation(x):
+    """
+    Takes a string and removes all punctuation.
+    """
+    return x.translate(str.maketrans('', '', string.punctuation))

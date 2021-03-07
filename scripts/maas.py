@@ -13,7 +13,7 @@ import PySimpleGUI as sg
 import numpy as np
 import pandas as pd
 
-from utils.data_utils import update_index, get_similarity, compare_authors
+from utils.data_utils import update_index, get_similarity, compare_authors, remove_punctuation
 from utils.gui_utils import get_label, get_who_codes, get_mark, get_mark_categorical, get_float
 from utils.gui_utils import decode_model_pred, decode_model_error_prob, decode_lang, decode_300_pages
 
@@ -22,7 +22,7 @@ __author__ = "Aleksander Molak"
 __copyright__ = "(C) 2021, Aleksander Molak"
 __credits__ = ["Aleksander Molak"]
 __license__ = ""
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 __maintainer__ = "Alekssander Molak"
 __email__ = "aleksander.molak@gmail.com"
 __status__ = "beta"
@@ -453,11 +453,11 @@ while True:
         
 
     if event == '♻ Google':
-        search_phrase = f"https://www.google.com/search?q={data.at[current_index, 'web_search_phrase'].replace(' ', '+')}"
+        search_phrase = f"https://www.google.com/search?q={remove_punctuation(data.at[current_index, 'web_search_phrase']).replace(' ', '+')}"
         os.system(f"start \"\" {search_phrase}")
 
     if event == '♻ Scholar':
-        search_phrase = f"https://scholar.google.com/scholar?q={data.at[current_index, 'web_search_phrase'].replace(' ', '+')}"
+        search_phrase = f"https://scholar.google.com/scholar?q={remove_punctuation(data.at[current_index, 'web_search_phrase']).replace(' ', '+')}"
         os.system(f"start \"\" {search_phrase}")
 
     if event == '❤ Open PDF':
