@@ -60,7 +60,7 @@ if data_file.exists():
   print('\nYour data file seems up to date :)\n')
 
 else:
-
+  os.makedirs('./data', exist_ok=True)
   print(f'Downloading data from {URI}...\n')
 
   # Get stream
