@@ -15,9 +15,7 @@
 
 4. Now you should see your **MAAS folder location** on the left of your cursor. 
 
-5. Now type `maas` in your **Anaconda Prompt**. It should start the app.
-
-6. **Congrats!** We're done with the first part! 🎉
+5. Type `maas` in your **Anaconda Prompt**. It should start the app.
 
 <br>
 
