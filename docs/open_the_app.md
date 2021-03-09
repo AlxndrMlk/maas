@@ -1,5 +1,3 @@
-# MAAS update instructions
-
 ## How to open the app from Anaconda Prompt
 
 1. Go to your MAAS folder and **copy the folder location** (highlighted in blue in the pic below) by clicking `Ctrl+C`.
