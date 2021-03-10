@@ -74,8 +74,13 @@ with open(r'./app-data/error-hists.json', 'r') as f:
     BINS = ERROR_HISTS['bins']
     ERROR_PROBAS = ERROR_HISTS['p_error']
 
-data = pd.read_csv(DATA_PATH)
-data = data.fillna('')
+try:
+    data = pd.read_csv(DATA_PATH)
+    data = data.fillna('')
+except Exception:
+    data = pd.read_csv(DATA_PATH, sep=';')
+    data = data.fillna('')
+
 
 # Define current index
 current_index = 0
@@ -479,7 +484,7 @@ while True:
         data.at[current_index, 'why_not_final'] = values['-COMMENT-']
 
         # Store the file
-        data.to_csv(DATA_PATH, index = False, sep = ';')
+        data.to_csv(DATA_PATH, index = False)
 
 # Finish up by removing from the screen
 window.close()
