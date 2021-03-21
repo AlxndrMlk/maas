@@ -107,7 +107,7 @@ article_section = [
         sg.Input(f'', 
                            size = (8, 1),
                            key = '-INDEX-', 
-                           font = 'Halvetica 10',
+                           font = 'Halvetica 9',
                            disabled = True),
         sg.Button('Go!', 
             pad = None,
@@ -132,14 +132,21 @@ article_section = [
         sg.Text(f'', 
             size = (48, 3),
             key = '-TITLE-',
-            font = 'Halvetica 10 bold')
+            font = 'Halvetica 9 bold')
     ],
     [
         sg.Text('Authors', size = (9, 2)), 
         sg.Text(f'', 
             size = (48, 2),
             key = '-AUTHORS-',
-            font = 'Halvetica 10 bold')
+            font = 'Halvetica 9 bold')
+    ],
+    [
+    sg.Text('Year', size = (9, 1)), 
+    sg.Text(f'', 
+        size = (48, 2),
+        key = '-YEAR-',
+        font = 'Halvetica 9 bold')
     ],
 
     ## Found
@@ -148,7 +155,7 @@ article_section = [
         sg.Text(f'⬇⬇⬇ Choose your name and click ▶ Start button ⬇⬇⬇', 
             size = (48, 3),
             key = '-FOUND-TITLE-',
-            font = 'Halvetica 10 bold',
+            font = 'Halvetica 9 bold',
             text_color = FOUND_COLOR)
     ],
     [
@@ -156,7 +163,7 @@ article_section = [
         sg.Text(f'', 
             size = (48, 2),
             key = '-FOUND-AUTHORS-',
-            font = 'Halvetica 10 bold',
+            font = 'Halvetica 9 bold',
             text_color = FOUND_COLOR)
     ],
     [
@@ -164,7 +171,7 @@ article_section = [
         sg.Text(f'', 
             size = (48, 2),
             key = '-KEYWORD-',
-            font = 'Halvetica 10')
+            font = 'Halvetica 9')
     ],
 
     # Articles nav
@@ -197,7 +204,7 @@ article_section = [
         sg.Text('',
                 size = (3, 1),
                 key = '-TITLES-MATCH-',
-                font = 'Halvetica 10 bold'), 
+                font = 'Halvetica 9 bold'), 
         sg.Text(f'', 
                 text_color = 'green',
                 key = '-TITLES-MATCH-MARK-')
@@ -207,7 +214,7 @@ article_section = [
         sg.Text('',
                 size = (3, 1),
                 key = '-AUTHORS-MATCH-',
-                font = 'Halvetica 10 bold'),
+                font = 'Halvetica 9 bold'),
         sg.Text(f'', 
                 text_color = 'green',
                 key = '-AUTHORS-MATCH-MARK-')
@@ -217,7 +224,7 @@ article_section = [
         sg.Text(f'',
                 size = (3, 1),
                 key = '-LANGUAGE-',
-                font = 'Halvetica 10 bold'),
+                font = 'Halvetica 9 bold'),
         sg.Text(f'', 
                 key = '-LANGUAGE-MARK-'),
         sg.Text(f'', 
@@ -229,7 +236,7 @@ article_section = [
         sg.Text(f'',
                 size = (3, 1),
                 key = '-IS-A-BOOK-',
-                font = 'Halvetica 10 bold'),
+                font = 'Halvetica 9 bold'),
         sg.Text(f'', 
                 key = '-IS-A-BOOK-MARK-'),
         sg.Text(f'', 
@@ -268,7 +275,7 @@ decision_section = [
         sg.Text(f'None', 
                     size = (8, 1),
                     key = '-MODEL-PRED-', 
-                    font = 'Halvetica 10 bold')
+                    font = 'Halvetica 9 bold')
     ],
 
     ## Confidence
@@ -277,7 +284,7 @@ decision_section = [
         sg.Text(f'NA', 
                     size = (8, 1),
                     key = '-MODEL-CONF-', 
-                    font = 'Halvetica 10 bold'),
+                    font = 'Halvetica 9 bold'),
     ],
 
     # HUMAN - Section title
@@ -289,7 +296,7 @@ decision_section = [
         sg.Text(f'{get_who_codes(data.at[current_index, "who_codes"])}', 
                     size = (8, 1),
                     key = '-HUMAN-AGENT-', 
-                    font = 'Halvetica 10 bold')
+                    font = 'Halvetica 9 bold')
     ],
 
     ## Human decision
@@ -354,6 +361,7 @@ def update_screen(window, current_index):
     window['-INDEX-'].update(f'{data.at[current_index, ID_COL]}')
     window['-TITLE-'].update(f'{data.at[current_index, "Title"].title()}')
     window['-AUTHORS-'].update(f'{data.at[current_index, "Authors"]}')
+    window['-YEAR-'].update(f'{data.at[current_index, "year2"]}')
     window['-FOUND-TITLE-'].update(f'{data.at[current_index, "web_title"]}')
     window['-FOUND-AUTHORS-'].update(f'{str(data.at[current_index, "web_authors"]).strip().split("-")[0].title()}')
     window['-TITLES-MATCH-'].update(f'{titles_similarity:.2f}')
