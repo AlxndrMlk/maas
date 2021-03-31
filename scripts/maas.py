@@ -70,6 +70,9 @@ with open(r'./app-data/annotators.dat', 'r') as f:
 with open(r'./app-data/data.dat', 'r') as f:
     DATA_PATH = f.readline()
 
+with open(r'./app-data/pdf-path.dat', 'r') as f:
+    PDF_PATH = f.readline()
+
 with open(r'./app-data/error-hists.json', 'r') as f:
     ERROR_HISTS = json.load(f)
     BINS = ERROR_HISTS['bins']
@@ -476,7 +479,7 @@ while True:
 
     if event == '❤ Open PDF':
         try:
-            os.startfile(fr'./pdf-library\\{data.at[current_index, "pdf_dwnld_filename"]}')
+            os.startfile(fr'{PDF_PATH}\\{data.at[current_index, "pdf_dwnld_filename"]}')
         except:
             window['-INDEX-WARNING-'].update(f'File not found :(((')
 
