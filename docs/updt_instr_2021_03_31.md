@@ -1,6 +1,6 @@
 # MAAS update instructions
 
-## Part 1 - update the app
+## Part 1 - update the app and the dataset
 
 1. Go to your MAAS folder and **copy the folder location** (highlighted in blue in the pic below) by clicking `Ctrl+C`.
 <br>
