@@ -65,7 +65,7 @@ FEATS = [
 # Read in the data
 with open(r'./app-data/annotators.dat', 'r') as f:
     ANNOTATORS = f.readlines()
-    ANNOTATORS = [a.strip() for a in ANNOTATORS]
+    # ANNOTATORS = [a.strip() for a in ANNOTATORS]
 
 with open(r'./app-data/data.dat', 'r') as f:
     DATA_PATH = f.readline()
