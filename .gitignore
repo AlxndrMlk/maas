@@ -1,5 +1,6 @@
 data/
 pdf-library/*.pdf
+app-data/pdf-path.dat
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
