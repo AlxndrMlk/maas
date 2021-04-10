@@ -25,7 +25,7 @@
 
 <br>
 
-## Part 2 - download PDFs (optional)
+<!-- ## Part 2 - download PDFs (optional)
 
 1. Download PDFs from here: https://cbu-pdf.s3.us-east-2.amazonaws.com/pdf-prqst/pdf_proq.zip (45GB). Save the file in `pdf-library` folder (it's inside your `maas` folder). If you don't have enough space on your main drive, go directly to **Part 3**.
 
@@ -33,17 +33,13 @@
 
 3. After extracting, you can **delete** the zip file (`pdf.zip`).
 
-3. **That's all!** 🎉 Now you can type `maas` in your **Anaconda Prompt** and start using the app with updated PDFs. 
+3. **That's all!** 🎉 Now you can type `maas` in your **Anaconda Prompt** and start using the app with updated PDFs.  -->
 
 <br>
 
-## Part 3 - download PDFs to another location (optional)
+## Part 2 - download PDFs to another location (optional)
 
-1. Download PDFs from here: https://cbu-pdf.s3.us-east-2.amazonaws.com/pdf-prqst/pdf_proq.zip (45GB). Save the file in any convenient location. 
-
-2. Unzip the files in your folder of choice. After extracting, you can **delete** the zip file (`pdf_proq.zip`).
-
-3. **Importnat**: Copy or move your old PDFs to the same folder.
+1. Move **all** your PDFs to a folder of choice.
 
 4. Now copy the folder location.
 <br>
@@ -51,6 +47,6 @@
 
 5. Go to your `maas` folder. You should see another folder there called `app-data`. Inside `app-data` there's a file called `pdf-path.dat`.
 
-6. Open `pdf-path.dat` with **Notepad** and overwrite its content. You can do it by selecting all (`Ctrl+A`) and pasting your PDF folder location (`Ctrl+V`). After pasting your folder location save the file (`Ctrl+S`).
+6. Open `pdf-path.dat` with **Notepad** and overwrite its content with your folder's path. You can do it by selecting all (`Ctrl+A`) and pasting your PDF folder location (`Ctrl+V`). After pasting your folder location save the file (`Ctrl+S`).
 
 7. **That's all!** 🎉 Now you can type `maas` in your **Anaconda Prompt** and start using the app with updated PDFs. 
