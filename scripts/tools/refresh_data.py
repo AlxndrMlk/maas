@@ -20,7 +20,7 @@ __author__ = "Aleksander Molak"
 __copyright__ = "(C) 2021, Aleksander Molak"
 __credits__ = ["Aleksander Molak"]
 __license__ = ""
-__version__ = "0.1.0"
+__version__ = "0.1.3"
 __maintainer__ = "Alekssander Molak"
 __email__ = "aleksander.molak@gmail.com"
 __status__ = "beta"
@@ -79,11 +79,21 @@ else:
           file.write(data)
   progress_bar.close()
 
+  print('\nChecking the data...')
+
   if total_size_in_bytes != 0 and progress_bar.n != total_size_in_bytes:
       print("\nError :(")
   else:
-      print('\nDone! :)')
-  
+      with open(data_file, 'r', encoding='utf-8') as f:
+        file_ = f.read()
 
-print(f'\nUpdate completed!\n')
-time.sleep(3)
+      if "<Error><Code>AccessDenied" in file_:
+        print('\nError :( You have no access to the file.')
+        os.remove(data_file)
+        print(f'\nPlease contact admin.\n')
+        time.sleep(3)
+
+      else:
+          print('\nDone! :)')
+          print(f'\nUpdate completed!\n')
+          time.sleep(3)
