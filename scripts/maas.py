@@ -124,7 +124,13 @@ article_section = [
         sg.Text('',
             size = (32, 1),
             text_color = 'red',
-            key = '-INDEX-WARNING-')
+            key = '-INDEX-WARNING-'),
+
+        sg.Text('IDrec:', size = (4, 1)),
+        
+        sg.Text('', 
+            size = (5, 1), 
+            key='-ORIGINAL-INDEX-'), 
     ],
 
     # [sg.Text(font = 'Halvetica 3')],
@@ -363,6 +369,7 @@ def update_screen(window, current_index):
 
     # Article
     window['-INDEX-'].update(f'{data.at[current_index, ID_COL]}')
+    window['-ORIGINAL-INDEX-'].update(f'{data.at[current_index, "IDrec"]}')
     window['-TITLE-'].update(f'{data.at[current_index, "Title"].title()}')
     window['-AUTHORS-'].update(f'{data.at[current_index, "Authors"]}')
     window['-YEAR-'].update(f'{data.at[current_index, "year2"]}')
