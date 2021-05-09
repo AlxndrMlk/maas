@@ -47,7 +47,7 @@ Contact: {__email__}
 """)
 
 # Definitions
-ID_COL = 'IDrec'
+ID_COL = 'ID_rec_new'
 FOUND_COLOR = '#243e73'
 MAIN_COLOR = '#3f84e1'
 
@@ -107,7 +107,7 @@ article_section = [
 
     # Article ID
     [
-        sg.Text('IDrec: ', size = (9, 1)), 
+        sg.Text('ID_rec_new: ', size = (9, 1)), 
         sg.Input(f'', 
                            size = (8, 1),
                            key = '-INDEX-', 
